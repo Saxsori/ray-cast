@@ -7,11 +7,13 @@ Well let me firstly tell you what are the math concepts that I have used in the 
 
 ## Main Idea
 In order to explain the main idea of the formulas, let's say that we have the player postion on a 2D map (x, y) coordinates. The player is looking at the wall in front of him (NORTH), let's say the looking angle is 90 which is straight to north. The distance from his coordinate to the point of the wall called a ray. Depending on the player's [FOV](https://www.techtarget.com/whatis/definition/field-of-view-FOV) the number of the rays will be decided. If the FOV is 120 then his looking width will be 60 degrees to the left and 60 degrees to the right from the looking angle (90).
-Well where are we going to use the vectors? 
+
+Well where are we going to use the vectors?
+
 Using the player's coordinate and his looking angle we can calculate the ray's vector (X and Y components). Then calculate the offset (gridline outlier) the points where the rays could hit vertically and horizontally till the point of the wall.
 
-## GridLine Checkers
-
+## GridLine Hit Checkers
+Each time the ray will hit a grid line horizontally or vertically will be the position where we can check if it's a wall or not. To do that we firstly need to know how to calculate the rays vectors using the player coordinates. 
 
 ### Horizontal Gridline
 
