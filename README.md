@@ -25,9 +25,7 @@ Each time the ray will hit a grid line horizontally or vertically, that point ac
 Horizontal Grid Lines is the (NORTH & SOUTH), or `the upper and the lower sides of a 2d map`. Vertical Grid Lines is the (WEST & EAST), `or the left and the right sides of a 2d map`.
 Depending on the looking angle of the player we can decide where the ray is actually hitting vertically `(left or right)` and horizontally `(up or down)`. Before that We actually need to understand how we can calculate `the ray's line and the ray's vector`.
 
-Let's explain how we can get the formulas in general (ray's vectors)..
-
-First thing to know in order to get the ray's X and Y components `(ray Y and ray X)`, is that we can use the rule of the right triangle.
+First thing to know in order to get the ray's vector (X and Y components) `ray Y and ray X`, is that we can use the rule of the right triangle.
 
 ### Example
 This is in example on how the ray's points should look like when it hits the grid lines. I used [desmos](https://www.desmos.com/calculator/rhdvs6uffp) to plot them out. And I added the offsets and the parameter manually for the looking angle 60 and the position (77, 77). `The red point is the player's position, the orange points are the upper side, the green points are the lower side, the black points are the left side, and the purple points are the right side`. 
