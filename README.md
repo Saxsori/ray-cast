@@ -196,7 +196,7 @@ while (++x < WIDTH)
    end = (HEIGHT / 2) + (wall_height / 2);
    y = begin - 1;
    while (++y < end)
-     draw(x, y);
+     draw_line(x, y);
 }
 ````
 
