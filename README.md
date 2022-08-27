@@ -152,15 +152,50 @@ So depending on the looking angle we can choose the right formulas to get the hi
 
 Create a loop to check which grid line checker will hit the wall firstly, the vertical or the horizontal one. Then calculate the distance between the point where the ray hit the wall and the position of the player, and this should be the length of the ray line. You can easily use the [pythagorean rule]() to calculate the length of the line between two points. $c = \sqrt{a^2 + b^2}$
 
-Save these values for drawing but firstly let's explain how the width and the height of the screen should be scaled.
+Save this value (the length of the ray) for drawing but firstly let's explain how the width and the height of the screen should be scaled. How it should look like !
 
 ### Width of the Screen
-Using the length of the ray you can find the height 
+The width of the screen will be fixed. You can choose the width of the screen. As you cann see the width of the screen is the width of the image that the player can see. The size of the width will be the number of the rays. And the angle between each ray should the FOV / width.
 
+`````ruby
+angle = looking_angle - (FOV / 2);
+while (--WIDTH)
+{
+   ray[i].angle = angle;
+   angle += (FOV / WIDTH);
+}
+`````
 
 ### Height of the Screen
+The height of the screen will be fixed also. The height of the screen should the Max height that the wall could reach, you can choose your own size. To get the height of each wall, you should multiply the grid size (64) by the screen height divide by the ray length.
 
+````ruby
+wall_height = (64 * HEIGHT) / ray_len;
+````
 ### Drawing
+Okay let's wrap this all up. Using all of these ideas we can finally end up with these steps. Since the number of rays is the size of the width we can create this loop, inside the loop we should do the following steps..
+
+1- Do the gridline check and get the final ray points.
+
+2- Calculate the wall height using the HEIGHT of the screen and the ray length.
+
+3- Calculate the starting point and the ending point of the walls.
+
+4- Start drawing.
+
+````ruby
+x = -1;
+while (++x < WIDTH)
+{
+   check_gridline(ray[x]);
+   ray[x].wall_height = (64 * HEIGHT) / ray[x].ray_len;
+   begin = (HEIGHT / 2) - (wall_height / 2);
+   end = (HEIGHT / 2) + (wall_height / 2);
+   y = begin - 1;
+   while (++y < end)
+     draw(x, y);
+}
+````
 
 ## Finaly ! This how it should look like
 
