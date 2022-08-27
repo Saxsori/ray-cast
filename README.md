@@ -49,14 +49,14 @@ To make them hitting the next horizontal grid line we need to add a parameter :
 
 The formula when the player is looking (North) should finally look like this ..
 
-```
+```ruby
 rayY = ((pY / 64) * 64) + (Y.line - pY);
 rayX = (pY - rayY) / -tan(looking angle) + pX;
 ```
 
 If the player was looking (South) the direction is horizontally different now so the signs will be only changed
 
-```
+```ruby
 rayY = ((pY / 64) * 64) - (Y.line - pY);
 rayX = (pY - rayY) / -tan(looking angle) + pX;
 ````
@@ -69,14 +69,14 @@ So the formula will be changed to this ..
 
 If the player was looking to the East
 
-```
+```ruby
 rayX = ((pX / 64) * 64) + (X.line - pX);
 rayY = (pX - rayX) / -tan(looking angle) + pY;
 ```
 
 If the player was looking to the west the direction is now changes so the signs will be changed again.
 
-```
+```ruby
 rayX = ((pX / 64) * 64) - (X.line - pX);
 rayY = (pX - rayX) / -tan(looking angle) + pY;
 ```
@@ -90,7 +90,7 @@ Offset basically means the amount or a value by which the calculation is out of 
 #### If the player was looking North
 The X offset will be the size of the grid (64). So it can hit the next horizontal line. And to get the Y offset we can use (SOHCAHTOA) -> X offset * Tan.
 
-```
+```ruby
 oX = 64;
 oY = oX * tan(looking angle);
 ```
@@ -100,7 +100,8 @@ oY = oX * tan(looking angle);
 #### If the player was looking South
 
 The offsets will be the same but only the direction of the X will be changed..
-```
+
+```ruby
 oX = -64;
 oY = oX * tan(looking angle);
 ```
@@ -111,7 +112,7 @@ oY = oX * tan(looking angle);
 
 The Y offset will be the size of the grid (64). So it can hit the next vertical line. And to get the X offset we can use (SOHCAHTOA) -> Y offset * Tan.
 
-````
+````ruby
 oY = 64;
 oX = oY * tan(looking angle);
 ````
@@ -122,7 +123,7 @@ oX = oY * tan(looking angle);
 
 The offsets will be the same but only the direction of the Y will be changed..
 
-```
+```ruby
 oY = -64;
 oX = oY * tan(looking angle);
 ```
@@ -132,13 +133,14 @@ oX = oY * tan(looking angle);
 
 For Example, let's say the player's looking angle is 60. He's looking North to the East. Vertically the line should hit the right side and horizontally should hit the upper side. So the formulas that we are going to use are ..
 
-```
+```ruby
 rayY = ((pY / 64) * 64) + (Y.line - pY);
 rayX = (pY - rayY) / -tan(looking angle) + pX;
 ```
 
 And vertically 
-```
+
+```ruby
 rayX = ((pX / 64) * 64) + (X.line - pX);
 rayY = (pX - rayX) / -tan(looking angle) + pY;
 ```
@@ -146,6 +148,9 @@ rayY = (pX - rayX) / -tan(looking angle) + pY;
 So depending on the looking angle we can choose the right formulas to get the hitting points till the wall.
 
 ## Drawing the walls
+
+Create a loop to check which grid line checker will hit the wall firstly, the vertical or the horizontal one. Then calculate the distance between the point where the ray hit the wall and the position of the player. You can easily use the [pythagorean rule]() to calculate the length of the line between two points. 
+
 
 
 
