@@ -126,11 +126,14 @@ The offsets will be the same but only the direction of the Y will be changed..
 
 
 For Example, let's say the player's looking angle is 60. He's looking North to the East. Vertically the line should hit the right side and horizontally should hit the upper side. So the formulas that we are going to use are 
-rayY = ((pY / 64) * 64) + (Y.line - pY);
-rayX = (pY - rayY) / -tan(looking angle) + pX;
+
+- rayY = ((pY / 64) * 64) + (Y.line - pY);
+- rayX = (pY - rayY) / -tan(looking angle) + pX;
+
 And vertically 
-rayX = ((pX / 64) * 64) + (X.line - pX);
-rayY = (pX - rayX) / -tan(looking angle) + pY;
+
+- rayX = ((pX / 64) * 64) + (X.line - pX);
+- rayY = (pX - rayX) / -tan(looking angle) + pY;
 
 So depending on the looking angle we can choose the right formulas to get the hitting points till the wall
 
