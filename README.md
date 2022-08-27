@@ -149,7 +149,7 @@ So depending on the looking angle we can choose the right formulas to get the hi
 
 ## Drawing the walls
 
-Create a loop to check which grid line checker will hit the wall firstly, the vertical or the horizontal one. Then calculate the distance between the point where the ray hit the wall and the position of the player. You can easily use the [pythagorean rule]() to calculate the length of the line between two points. 
+Create a loop to check which grid line checker will hit the wall firstly, the vertical or the horizontal one. Then calculate the distance between the point where the ray hit the wall and the position of the player. You can easily use the [pythagorean rule]() to calculate the length of the line between two points. $\sqrt{a^2 + b^2}$
 
 
 
