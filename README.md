@@ -4,7 +4,7 @@ I will explain here the formulas that I have used to implement the ray-casting. 
 
 Note:
 
-`Im NoT DoNe yEt wItH KeYs .. AnD tHe PaLyEr cAn wAlK ThRouGh tHe WaLLs 🧟‍♀️`
+`Im NoT DoNe yEt wItH KeYs .. AnD tHe PaLyEr cAn wAlK ThRouGh tHe WaLLs` 🧟‍♀️
 
 ## Introduction
 The idea of the raycasting in general is easy and the formulas isn't that complicated. I will explain what kind of calaculation I used to create, draw, and move around the walls.
