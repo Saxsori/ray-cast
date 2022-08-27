@@ -195,7 +195,7 @@ while (++x < WIDTH)
 }
 ````
 
-## Finaly ! This how it should look like
+## Finaly ! This how it should look like ✌🏼
 
 ![](https://github.com/Saxsori/ray-cast/blob/main/images/10.gif)
 
