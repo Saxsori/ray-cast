@@ -1,6 +1,0 @@
-{
-	"makefile.extensionOutputFolder": "./.vscode",
-	"files.associations": {
-		"__node_handle": "c"
-	}
-}
