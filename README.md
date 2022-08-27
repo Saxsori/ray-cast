@@ -88,9 +88,9 @@ Offset basically means the amount or a value by which the calculation is out of 
 #### If the player was looking North
 The X offset will be the size of the grid (64). So it can hit the next horizontal line. And to get the Y offset we can use (SOHCAHTOA) -> X offset * Tan.
 
-#### oX = 64;
+#### - oX = 64;
 
-#### oY = oX* tan(looking angle);
+#### - oY = oX* tan(looking angle);
 
 ![](https://github.com/Saxsori/ray-cast/blob/main/images/H-U.png)
 
@@ -98,9 +98,9 @@ The X offset will be the size of the grid (64). So it can hit the next horizonta
 
 The offsets will be the same but only the direction of the X will be changed..
 
-#### oX = -64;
+#### - oX = -64;
 
-#### oY = oX* tan(looking angle);
+#### - oY = oX* tan(looking angle);
 
 
 ![](https://github.com/Saxsori/ray-cast/blob/main/images/H-D.png)
@@ -109,9 +109,9 @@ The offsets will be the same but only the direction of the X will be changed..
 
 The Y offset will be the size of the grid (64). So it can hit the next vertical line. And to get the X offset we can use (SOHCAHTOA) -> Y offset * Tan.
 
-#### oY = 64;
+#### - oY = 64;
 
-#### oX = oY * tan(looking angle);
+#### - oX = oY * tan(looking angle);
 
 ![](https://github.com/Saxsori/ray-cast/blob/main/images/V-R.png)
 
@@ -119,9 +119,9 @@ The Y offset will be the size of the grid (64). So it can hit the next vertical 
 
 The offsets will be the same but only the direction of the Y will be changed..
 
-#### oY = - 64 ;
+#### - oY = - 64 ;
 
-#### oX = oY * tan(looking angle);
+#### - oX = oY * tan(looking angle);
 
 ![](https://github.com/Saxsori/ray-cast/blob/main/images/V-L.png)
 
