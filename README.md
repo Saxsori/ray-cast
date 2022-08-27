@@ -16,21 +16,25 @@ Using the player's coordinate and his looking angle we can calculate the ray's v
 ## GridLine Hit Checkers
 Each time the ray will hit a grid line horizontally or vertically, that point actually should be the position where we can check if it's a wall or not. To do that we firstly need to know how to calculate the ray's vector using the player's coordinates, then add some calculated values (Grid offset) to hit each grid line in order to reach the wall grid line.
 
+![alt text](https://github.com/Saxsori/ray-cast/blob/main/images/1.png)
+
 Horizontal Grid Lines is the (NORTH & SOUTH), or the upper and the lower sides of a 2d map. Vertical Grid Lines is the (WEST & EAST), or the left and the right sides of a 2d map.
 Depending on the looking angle of the player we can decide where the ray is actually hitting vertically (left-right) or horizontally (up-down). Before that We actually need to understand how we can calculate the ray's line and the ray's vector.
 
-![alt text](https://github.com/Saxsori/ray-cast/blob/main/images/1.png)
-
 Let's explain how we can get the formulas in general (ray's vectors)..
-First thing to know is in order to get the ray's X and Y components (ray Y and ray X). We can use the rule of the right triangle. 
+First thing to know is in order to get the ray's X and Y components (ray Y and ray X). We can use the rule of the right triangle.
+
+This in example on how it should look like on a 2D map. I used [desmos](https://www.desmos.com/calculator/rhdvs6uffp) to plot them out. And I added the offset manually for the looking angle 60. The orange points are the upper side, the green points are the lower side, the black points are the left side, and the purple points are the right side. 
+
+<img width="635" alt="Screen Shot 2022-08-27 at 7 37 59 AM" src="https://user-images.githubusercontent.com/92129820/187012948-2590fd02-a71b-461b-bd28-6a7101aa5ac4.png">
 
 ### Horizontal Gridline
 
-To calculate the horizontal gridline checker formulas. We can follow these steps ..
+To calculate the horizontal gridline checker formulas. We can follow these steps :
 
-The ray Y point should be the player's Y coordinate.
+- The ray Y point should be the player's Y coordinate.
 
-Then to get the ray X point we can use the right triangle rules (SOHCAHTOA). The ray line would be Hypotenuse, the Opposite is the difference between the player Y coordinate and Ray Y point and the Adjacent is the ray X component which we are trying to find. So ray X is tan(looking angle) / opposite.
+- Then to get the ray X point we can use the right triangle rules (SOHCAHTOA). The ray line would be Hypotenuse, the Opposite is the difference between the player Y coordinate and Ray Y point and the Adjacent is the ray X component which we are trying to find. So ray X is tan(looking angle) / opposite.
 
  ![alt text](https://github.com/Saxsori/ray-cast/blob/main/images/4.png) 
  
