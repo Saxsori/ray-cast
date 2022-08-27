@@ -6,7 +6,7 @@
 /*   By: aaljaber <aaljaber@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 12:36:23 by aaljaber          #+#    #+#             */
-/*   Updated: 2022/08/27 05:50:04 by aaljaber         ###   ########.fr       */
+/*   Updated: 2022/08/27 19:44:13 by aaljaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,7 @@ void	check_gridline(t_ray *raycast)
 	raycast->f_dis = pythg(raycast->main->pos.axis.x, raycast->ray.x, raycast->main->pos.axis.y, raycast->ray.y);
 }
 
-// /*
-
+/*
 // 	// draw_line(raycast->main, &raycast->line);
 // 	// r = (r > deg_rad(359.00)) ? r -= deg_rad(360.00) : deg_rad(360.00);
 // 	// r = (r < deg_rad(0.00)) ? r += deg_rad(360.00) : deg_rad(0.00);
@@ -40,7 +39,7 @@ void	check_gridline(t_ray *raycast)
 // 	// if ((int)raycast->line.end.y > raycast->main->height)
 // 		// raycast->line.end.y = (double)raycast->main->height;
 // 	// y = -1;
-// */
+*/
 void	do_raycast(t_ray *raycast, int x)
 {
 	double	r;

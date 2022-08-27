@@ -6,7 +6,7 @@
 /*   By: aaljaber <aaljaber@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 05:45:57 by aaljaber          #+#    #+#             */
-/*   Updated: 2022/08/27 06:03:44 by aaljaber         ###   ########.fr       */
+/*   Updated: 2022/08/27 19:43:25 by aaljaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	init_ray(t_cub_main *main, t_ray *raycast, double r_angle)
 	// main->raycast = (t_ray *)malloc(sizeof(t_ray) * main->fov);
 		// init_ray(main, &main->raycast[i], (main->pos.vctr.a - ((double)main->fov / 2.00)) + (double)i);
 		// printf("angle %f\n", (main->pos.vctr.a - ((double)main->fov / 2.00)) + (double)i);
-		printf("angle %f\n", main->angle);
+		// printf("angle %f\n", main->angle);
 */
 void	info_ray(t_cub_main *main)
 {
