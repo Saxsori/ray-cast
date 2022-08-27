@@ -1,6 +1,6 @@
 # Ray-Casting
 
-I will explain here the formulas that I have used to implement the ray-casting. This raycast has been made in order to create a 3D game [Cub3D](https://github.com/Saxsori/cub3d) feel free to check the full project.
+I will explain here the formulas that I have used to implement the ray-casting. This raycast has been made in order to create a 3D game [Cub3D](https://github.com/Saxsori/cub3d). The project still in progress ⚙️🛠.
 
 Note:
 
