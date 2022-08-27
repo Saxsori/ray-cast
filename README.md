@@ -26,6 +26,7 @@ Horizontal Grid Lines is the (NORTH & SOUTH), or `the upper and the lower sides 
 Depending on the looking angle of the player we can decide where the ray is actually hitting vertically `(left or right)` and horizontally `(up or down)`. Before that We actually need to understand how we can calculate `the ray's line and the ray's vector`.
 
 Let's explain how we can get the formulas in general (ray's vectors)..
+
 First thing to know in order to get the ray's X and Y components `(ray Y and ray X)`, is that we can use the rule of the right triangle.
 
 ### Example
