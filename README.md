@@ -133,7 +133,6 @@ rayX = ((pX / 64) * 64) + (X.line - pX);
 rayY = (pX - rayX) / -tan(looking angle) + pY;
 
 So depending on the looking angle we can choose the right formulas to get the hitting points till the wall
-![image](https://user-images.githubusercontent.com/92129820/187013234-b415b0b5-55e2-4a0d-91d9-84f86b974f76.png)
 
 
 
