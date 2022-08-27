@@ -164,7 +164,7 @@ Using the length of the ray you can find the height
 
 ## Finaly ! This how it should look like
 
-![]()
+![](https://github.com/Saxsori/ray-cast/blob/main/images/10.gif)
 
 ## Resources
 - [3DSage Raycasting](https://www.youtube.com/watch?v=gYRrGTC7GtA)
