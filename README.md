@@ -13,7 +13,8 @@ Well where are we going to use the vectors?
 Using the player's coordinate and his looking angle we can calculate the ray's vector (X and Y components). Then calculate the offset (gridline outlier) the points where the rays could hit vertically and horizontally till the point of the wall.
 
 ## GridLine Hit Checkers
-Each time the ray will hit a grid line horizontally or vertically will be the position where we can check if it's a wall or not. To do that we firstly need to know how to calculate the rays vectors using the player coordinates. 
+Each time the ray will hit a grid line horizontally or vertically .. that point actually should be the position where we can check if it's a wall or not. To do that we firstly need to know how to calculate the ray's vectors using the player coordinates. Horizontal Grid Lines is the (NORTH & SOUTH) where the player could look at .. the upper and the lower sides of a 2d map. Vertical Grid Lines is the (WEST & EAST) where the player could look at .. the left and the right sides of a 2d map.
+Depending on the looking angle of the player we can decide where is ray's is actually hitting vertically (left or right) and horizontally (up or down). Before that We actually need to understand how we can calculate the ray's line and the ray's vectors. Check this note for more details.
 
 ### Horizontal Gridline
 
