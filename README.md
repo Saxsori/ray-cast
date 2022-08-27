@@ -25,7 +25,7 @@ Let's explain how we can get the formulas in general (ray's vectors)..
 First thing to know is in order to get the ray's X and Y components `(ray Y and ray X)`. We can use the rule of the right triangle.
 
 ### Example
-This in example on how it should look like on a 2D map. I used [desmos](https://www.desmos.com/calculator/rhdvs6uffp) to plot them out. And I added the offset manually for the looking angle 60. `The orange points are the upper side, the green points are the lower side, the black points are the left side, and the purple points are the right side`. 
+This in example on how it should look like on a 2D map. I used [desmos](https://www.desmos.com/calculator/rhdvs6uffp) to plot them out. And I added the offset manually for the looking angle 60. `The red point is the player's position, the orange points are the upper side, the green points are the lower side, the black points are the left side, and the purple points are the right side`. 
 
 <img width="635" alt="Screen Shot 2022-08-27 at 7 37 59 AM" src="https://user-images.githubusercontent.com/92129820/187012948-2590fd02-a71b-461b-bd28-6a7101aa5ac4.png">
 
