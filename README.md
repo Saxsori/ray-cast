@@ -4,7 +4,7 @@ I will explain here the formulas that I have used to implement the ray-casting. 
 ## Introduction
 The idea of the raycasting in general is easy and the formulas isn't that complicated. I will explain what kind of calaculation I used to create, draw, and move around the walls.
 
-Well let me firstly tell you what are the math concepts that I have used in the formulas. Right triangle trigonometry (SOHCAHTOA), Components of a Vector (X , Y), and Vector quantity (magnitude and direction). 
+Well let me firstly tell you what are the math concepts that I have used in the formulas. [Right triangle trigonometry (SOHCAHTOA)](https://www.mathsisfun.com/algebra/sohcahtoa.html), and [Vectors: Components(X , Y), Quantity (magnitude and direction)](https://www.varsitytutors.com/hotmath/hotmath_help/topics/components-of-a-vector). 
 
 ## Main Idea
 In order to explain the main idea of the formulas, let's say that we have the player's postion on a 2D map (x, y) coordinates. The player is looking at the wall in front of him (NORTH), let's say the looking angle is 90 which is straight to north. The distance from his coordinate to the point of the wall called a ray. Depending on the player's [FOV](https://www.techtarget.com/whatis/definition/field-of-view-FOV) the number of the rays will be decided. If the FOV is 120 then his looking width will be 60 degrees to the left and 60 degrees to the right from the looking angle (90).
@@ -24,6 +24,7 @@ Depending on the looking angle of the player we can decide where the ray is actu
 Let's explain how we can get the formulas in general (ray's vectors)..
 First thing to know is in order to get the ray's X and Y components (ray Y and ray X). We can use the rule of the right triangle.
 
+### Example
 This in example on how it should look like on a 2D map. I used [desmos](https://www.desmos.com/calculator/rhdvs6uffp) to plot them out. And I added the offset manually for the looking angle 60. The orange points are the upper side, the green points are the lower side, the black points are the left side, and the purple points are the right side. 
 
 <img width="635" alt="Screen Shot 2022-08-27 at 7 37 59 AM" src="https://user-images.githubusercontent.com/92129820/187012948-2590fd02-a71b-461b-bd28-6a7101aa5ac4.png">
@@ -149,10 +150,21 @@ So depending on the looking angle we can choose the right formulas to get the hi
 
 ## Drawing the walls
 
-Create a loop to check which grid line checker will hit the wall firstly, the vertical or the horizontal one. Then calculate the distance between the point where the ray hit the wall and the position of the player. You can easily use the [pythagorean rule]() to calculate the length of the line between two points. $c = \sqrt{a^2 + b^2}$
+Create a loop to check which grid line checker will hit the wall firstly, the vertical or the horizontal one. Then calculate the distance between the point where the ray hit the wall and the position of the player, and this should be the length of the ray line. You can easily use the [pythagorean rule]() to calculate the length of the line between two points. $c = \sqrt{a^2 + b^2}$
+
+Save these values for drawing but firstly let's explain how the width and the height of the screen should be scaled.
+
+### Width of the Screen
+Using the length of the ray you can find the height 
 
 
+### Height of the Screen
 
+### Drawing
+
+## Finaly ! This how it should look like
+
+![]()
 
 ## Resources
 - [3DSage Raycasting](https://www.youtube.com/watch?v=gYRrGTC7GtA)
