@@ -18,7 +18,7 @@ In order to explain the main idea of the formulas, let's say that we have the pl
 Using the player's coordinate and his looking angle we can calculate the ray's vector `(X and Y components)`. Then calculate the offset `(gridline outlier)` the points where the rays could hit vertically and horizontally till the point of the wall.
 
 ## GridLine Hit Checkers
-Each time the ray will hit a grid line horizontally or vertically, that point actually should be the position where we can check if it's a wall or not. To do that we firstly need to know how to calculate the ray's vector using the player's coordinates, then add some calculated values `(Grid offset)` to hit each grid line in order to reach the wall grid line, called `(Grid Offset)`.
+Each time the ray will hit a grid line horizontally or vertically, that point actually should be the position where we can check if it's a wall or not. To do that we firstly need to know how to calculate the ray's vector using the player's coordinates, then add a specfic value `(parameters)` to hit the first grid line, then continually add a constant value to hit each grid line till the wall grid line, called `(Grid Offset)`.
 
 ![alt text](https://github.com/Saxsori/ray-cast/blob/main/images/1.png)
 
