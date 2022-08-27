@@ -125,6 +125,18 @@ The offsets will be the same but only the direction of the Y will be changed..
 ![](https://github.com/Saxsori/ray-cast/blob/main/images/V-L.png)
 
 
+For Example, let's say the player's looking angle is 60. He's looking North to the East. Vertically the line should hit the right side and horizontally should hit the upper side. So the formulas that we are going to use are 
+rayY = ((pY / 64) * 64) + (Y.line - pY);
+rayX = (pY - rayY) / -tan(looking angle) + pX;
+And vertically 
+rayX = ((pX / 64) * 64) + (X.line - pX);
+rayY = (pX - rayX) / -tan(looking angle) + pY;
+
+So depending on the looking angle we can choose the right formulas to get the hitting points till the wall
+![image](https://user-images.githubusercontent.com/92129820/187013234-b415b0b5-55e2-4a0d-91d9-84f86b974f76.png)
+
+
+
 ## Resources
 - [3DSage Raycasting](https://www.youtube.com/watch?v=gYRrGTC7GtA)
 
