@@ -1,8 +1,9 @@
 # ray-cast
 
-I will explain here the formulas that I have used to implement the ray-casting. What kind of calaculation I made to create and draw the wall and moves around them. The idea of the raycasting in general is easy and the formulas isn't that complicated.
-
+I will explain here the formulas that I have used to implement the ray-casting. This raycast has been made in order to create a 3D game [Cub3D](https://github.com/Saxsori/cub3d) feel free to check the full project.
 ## Introduction
+The idea of the raycasting in general is easy and the formulas isn't that complicated. I will explain what kind of calaculation I used to create, draw, and move around the walls.
+
 Well let me firstly tell you what are the math concepts that I have used in the formulas. Right triangle trigonometry (SOHCAHTOA), Components of a Vector (X , Y), and Vector quantity (magnitude and direction). 
 
 ## Main Idea
@@ -14,7 +15,7 @@ Using the player's coordinate and his looking angle we can calculate the ray's v
 
 ## GridLine Hit Checkers
 Each time the ray will hit a grid line horizontally or vertically .. that point actually should be the position where we can check if it's a wall or not. To do that we firstly need to know how to calculate the ray's vectors using the player coordinates. Horizontal Grid Lines is the (NORTH & SOUTH) where the player could look at .. the upper and the lower sides of a 2d map. Vertical Grid Lines is the (WEST & EAST) where the player could look at .. the left and the right sides of a 2d map.
-Depending on the looking angle of the player we can decide where is ray's is actually hitting vertically (left or right) and horizontally (up or down). Before that We actually need to understand how we can calculate the ray's line and the ray's vectors. Check this note for more details.
+Depending on the looking angle of the player we can decide where is ray's is actually hitting vertically (left or right) and horizontally (up or down). Before that We actually need to understand how we can calculate the ray's line and the ray's vectors. [m](https://github.com/Saxsori/ray-cast/blob/main/images/1.png)
 
 ### Horizontal Gridline
 
