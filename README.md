@@ -46,8 +46,8 @@ To calculate the horizontal gridline checker formulas. We can follow these steps
  
 To scale them to the size of the grid (64) :
 
-- The ray Y you should firstly scale the player's Y point to 64 unit. `((pY / 64) * 64);`
-- The ray X should had the player's X coordinate. `(+ pX);`
+- The ray Y: you should firstly scale the player's Y point to 64 unit. `((pY / 64) * 64);`
+- The ray X: should had the player's X coordinate. `(+ pX);`
 
 To make them hitting the next horizontal grid line we need to add a parameter :
 
