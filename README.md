@@ -204,7 +204,7 @@ while (++x < WIDTH)
 
 ## Finaly ! This how it should look like ✌🏼
 
-![](https://github.com/Saxsori/ray-cast/blob/main/images/10.gif)
+![](https://github.com/Saxsori/ray-cast/blob/main/images/20.gif)
 
 ## Resources
 - [3DSage Raycasting](https://www.youtube.com/watch?v=gYRrGTC7GtA)
