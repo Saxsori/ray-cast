@@ -141,7 +141,7 @@ oX = oY * tan(looking angle);
 ![](https://github.com/Saxsori/ray-cast/blob/main/images/V-L.png)
 
 
-Then in loop we should add the offset values to the ray values till it hit the wall.
+Then we do the wall checking loop, in the loop we should add the offset values to the ray values till it hit the wall.
 
 ```ruby
 while (!wall)
@@ -156,6 +156,8 @@ For Example, let's say `the player's looking angle is 60. He's looking North to 
 ```ruby
 rayY = ((pY / 64) * 64) + (Y.line - pY);
 rayX = (pY - rayY) / -tan(looking angle) + pX;
+oX = 64;
+oY = oX * tan(looking angle);
 ```
 
 And vertically 
@@ -163,7 +165,12 @@ And vertically
 ```ruby
 rayX = ((pX / 64) * 64) + (X.line - pX);
 rayY = (pX - rayX) / -tan(looking angle) + pY;
+oY = 64;
+oX = oY * tan(looking angle);
 ```
+Now we can do the wall checking loop (adding the offsets to the rays points) till it hit the wall. Then calculate the ray's line for the vertical check and the horizontal check and choose the shortest one (first one hit the wall). 
+
+![](https://github.com/Saxsori/ray-cast/blob/main/images/3.png)
 
 `So depending on the looking angle we can choose the right formulas to get the hitting points till the wall`.
 
