@@ -53,19 +53,21 @@ To make them hitting the next horizontal grid line we need to add a parameter :
 
 - The ray Y point should had the distance from the player position to the next horizontal grid line `(the difference between the player Y coordinate and the next Y line)` so that it can hit the next horizontal gridline.
 
-The formula when the player is looking (North) should finally look like this ..
+#### The formula when the player is looking (North) should finally look like this ..
 
 ```ruby
 rayY = ((pY / 64) * 64) + (Y.line - pY);
 rayX = (pY - rayY) / -tan(looking angle) + pX;
 ```
+![](https://github.com/Saxsori/ray-cast/blob/main/images/7.png)
 
-If the player was looking (South) the direction is horizontally different now so the signs will be only changed ..
+#### If the player was looking (South) the direction is horizontally different now so the signs will be only changed ..
 
 ```ruby
 rayY = ((pY / 64) * 64) - (Y.line - pY);
 rayX = (pY - rayY) / -tan(looking angle) + pX;
 ````
+![](https://github.com/Saxsori/ray-cast/blob/main/images/8.png)
 
 ### Vertical Gridline 
 
@@ -79,6 +81,7 @@ So the formula will be changed to this ..
 rayX = ((pX / 64) * 64) + (X.line - pX);
 rayY = (pX - rayX) / -tan(looking angle) + pY;
 ```
+![](https://github.com/Saxsori/ray-cast/blob/main/images/9.png)
 
 #### If the player was looking to the west the direction is now different so the signs will be changed again.
 
@@ -86,6 +89,7 @@ rayY = (pX - rayX) / -tan(looking angle) + pY;
 rayX = ((pX / 64) * 64) - (X.line - pX);
 rayY = (pX - rayX) / -tan(looking angle) + pY;
 ```
+![](https://github.com/Saxsori/ray-cast/blob/main/images/10.png)
 
 ### Gridline Offset
 
