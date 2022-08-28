@@ -91,6 +91,8 @@ rayY = (pX - rayX) / -tan(looking angle) + pY;
 
 Offset basically means the amount or a value by which the calculation is out of line or where it could hit the outlier. And here it means the value to add each time to hit the next grid line. So, we want the rays to hit the grid lines not more not a less. Therefore, to calculate these values we are going to use `SOHCAHTOA` again.
 
+![](https://github.com/Saxsori/ray-cast/blob/main/images/6.png)
+
 #### If the player was looking North
 The X offset will be the size of the grid (64). So it can hit the next horizontal line. And to get the Y offset we can use `(SOHCAHTOA) -> X offset * Tan`.
 
