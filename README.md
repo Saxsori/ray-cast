@@ -40,7 +40,7 @@ To calculate the horizontal gridline checker formulas. We can follow these steps
 
 - The ray Y point should be the player's Y coordinate.
 
-- Then to get the ray X point we can use the right triangle rules `(SOHCAHTOA)`. The ray line would be Hypotenuse, the Opposite is the difference between the player Y coordinate and Ray Y point and the Adjacent is the ray X component which we are trying to find. So ray X is `tan(looking angle) / opposite`.
+- Then to get the ray X point we can use the right triangle rules `(SOHCAHTOA)`. The ray line would be Hypotenuse, the Opposite is the difference between the player Y coordinate and Ray Y point and the Adjacent is the ray X component which we are trying to find. So ray X is `tan(looking angle) / opposite (ray Y)`.
 
  ![alt text](https://github.com/Saxsori/ray-cast/blob/main/images/4.png) 
  
@@ -69,7 +69,7 @@ rayX = (pY - rayY) / -tan(looking angle) + pX;
 
 ### Vertical Gridline 
 
-To check the vertical grid line hit, it will be the same but opposite. The calculation will depend only on the ray Y where it could hit the Y lines. Previously on the horizontal checkers it was depending on the ray X where it can hit on the X lines.
+To check the vertical grid line hit, it will be the same but opposite. The calculation will depend only on the ray Y where it could hit the Y lines. Previously on the horizontal checkers it was depending on the ray X where it can hit the X lines.
 
 So the formula will be changed to this ..
 
@@ -80,7 +80,7 @@ rayX = ((pX / 64) * 64) + (X.line - pX);
 rayY = (pX - rayX) / -tan(looking angle) + pY;
 ```
 
-#### If the player was looking to the west the direction is now changes so the signs will be changed again.
+#### If the player was looking to the west the direction is now different so the signs will be changed again.
 
 ```ruby
 rayX = ((pX / 64) * 64) - (X.line - pX);
@@ -89,7 +89,7 @@ rayY = (pX - rayX) / -tan(looking angle) + pY;
 
 ### Gridline Offset
 
-Offset basically means the amount or a value by which the calculation is out of line or where it could hit the outlier. And here it means the value to add each time to hit the next grid line. So, we want the rays to hit the grid lines not more not a less. Therefore, to calculate these amounts we are going to use `SOHCAHTOA` again.
+Offset basically means the amount or a value by which the calculation is out of line or where it could hit the outlier. And here it means the value to add each time to hit the next grid line. So, we want the rays to hit the grid lines not more not a less. Therefore, to calculate these values we are going to use `SOHCAHTOA` again.
 
 #### If the player was looking North
 The X offset will be the size of the grid (64). So it can hit the next horizontal line. And to get the Y offset we can use `(SOHCAHTOA) -> X offset * Tan`.
