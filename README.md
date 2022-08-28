@@ -176,7 +176,7 @@ Now we can do the wall checking loop (adding the offsets to the rays points) til
 
 ## Drawing the walls
 
-Create a loop to check which grid line checker will hit the wall firstly, the vertical or the horizontal one. Then calculate the distance between the point where the ray hit the wall and the position of the player, and this should be the length of the ray line. You can easily use the [pythagorean rule](https://courses.lumenlearning.com/waymakercollegealgebra/chapter/distance-in-the-plane/) to calculate the length of the line between two points. $c = \sqrt{{X2 - X1}^2 + {Y2 - Y1}^2}$
+Create a loop to check which grid line checker will hit the wall firstly, the vertical or the horizontal one. Then calculate the distance between the point where the ray hit the wall and the position of the player, and this should be the length of the ray line. You can easily use the [pythagorean rule](https://courses.lumenlearning.com/waymakercollegealgebra/chapter/distance-in-the-plane/) to calculate the length of the line between two points. $c = \sqrt{{(X2 - X1)}^2 + {(Y2 - Y1)}^2}$
 
 `Save this value (the length of the ray) for drawing but firstly let's explain how the width and the height of the screen should be scaled. How it should look like !`
 
