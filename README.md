@@ -141,6 +141,16 @@ oX = oY * tan(looking angle);
 ![](https://github.com/Saxsori/ray-cast/blob/main/images/V-L.png)
 
 
+Then in loop we should add the offset values to the ray values till it hit the wall.
+
+```ruby
+while (!wall)
+{
+ rayY += oY;
+ rayX += oX;
+}
+```
+
 For Example, let's say `the player's looking angle is 60. He's looking North to the East. Vertically the line should hit the right side and horizontally should hit the upper side`. So the formulas that we are going to use are ..
 
 ```ruby
