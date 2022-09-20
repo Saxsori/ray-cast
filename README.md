@@ -223,7 +223,7 @@ while (++x < WIDTH)
 }
 ````
 
-## Finaly ! This how it should look like ✌🏼
+## Finally ! This how it should look like ✌🏼
 
 ![](https://github.com/Saxsori/ray-cast/blob/main/images/20.gif)
 
