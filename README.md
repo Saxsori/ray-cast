@@ -98,7 +98,7 @@ Offset basically means the amount or a value by which the calculation is out of 
 ![](https://github.com/Saxsori/ray-cast/blob/main/images/6.png)
 
 #### If the player was looking North
-The X offset will be the size of the grid (64). So it can hit the next horizontal line. And to get the Y offset we can use `(SOHCAHTOA) -> X offset * Tan`.
+The Y offset will be the size of the grid (64). So it can hit the next horizontal line. And to get the X offset we can use `(SOHCAHTOA) -> Y offset * Tan`.
 
 ```ruby
 oY = 64;
@@ -109,7 +109,7 @@ oX = oY * tan(looking angle);
 
 #### If the player was looking South
 
-The offsets will be the same but only the direction of the X will be changed..
+The offsets will be the same but only the direction of the Y will be changed..
 
 ```ruby
 oY = -64;
@@ -120,7 +120,7 @@ oX = oY * tan(looking angle);
 
 #### If the player was looking East
 
-The Y offset will be the size of the grid (64). So it can hit the next vertical line. And to get the X offset we can use `(SOHCAHTOA) -> Y offset * Tan`.
+The X offset will be the size of the grid (64). So it can hit the next vertical line. And to get the Y offset we can use `(SOHCAHTOA) -> X offset * Tan`.
 
 ````ruby
 oX = 64;
@@ -131,7 +131,7 @@ oY = oX * tan(looking angle);
 
 #### If the player was looking West
 
-The offsets will be the same but only the direction of the Y will be changed..
+The offsets will be the same but only the direction of the X will be changed..
 
 ```ruby
 oX = -64;
