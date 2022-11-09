@@ -40,7 +40,7 @@ To calculate the horizontal gridline checker formulas. We can follow these steps
 
 - The ray Y point should be the player's Y coordinate.
 
-- Then to get the ray X point we can use the right triangle rules `(SOHCAHTOA)`. The ray line would be Hypotenuse, the Opposite is the difference between the player Y coordinate and Ray Y point and the Adjacent is the ray X component which we are trying to find. So ray X is `tan(looking angle) / opposite (ray Y)`.
+- Then to get the ray X point we can use the right triangle rules `(SOHCAHTOA)`. The ray line would be Hypotenuse, the Opposite is the difference between the player Y coordinate and Ray Y point and the Adjacent is the ray X component which we are trying to find. So ray X is `opposite (ray Y) / tan(looking angle)`.
 
  ![alt text](https://github.com/Saxsori/ray-cast/blob/main/images/4.png) 
  
