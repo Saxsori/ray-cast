@@ -6,7 +6,7 @@
 /*   By: aaljaber <aaljaber@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 12:36:23 by aaljaber          #+#    #+#             */
-/*   Updated: 2022/08/27 19:44:13 by aaljaber         ###   ########.fr       */
+/*   Updated: 2022/11/20 04:07:35 by aaljaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,6 @@ void	do_raycast(t_ray *raycast, int x)
 		r += deg_rad(360.00);
 	raycast->f_dis = raycast->f_dis * cos(r);
 	raycast->h_line = (int)(GRID * (1.00 * WIN_H)) / raycast->f_dis;
-	if (raycast->h_line > (1.00 * WIN_H))
-		raycast->h_line = (1.00 * WIN_H);
 	begin = (WIN_H / 2) - (int)(raycast->h_line / 2.00);
 	if (begin < 0)
 		begin = 0;
@@ -66,7 +64,8 @@ void	do_raycast(t_ray *raycast, int x)
 	y = (begin - 1);
 	while (++y < end)
 	{
-		raycast->main->buffer[y][x] = 0x8545e6;
+		if ((y > -1 && y < WIN_H) && (x > -1 && x < WIN_W))
+			raycast->main->buffer[y][x] = 0x8545e6;
 		raycast->main->re_buf = 1;
 	}
 }
