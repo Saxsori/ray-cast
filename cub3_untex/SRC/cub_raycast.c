@@ -6,7 +6,7 @@
 /*   By: aaljaber <aaljaber@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 12:36:23 by aaljaber          #+#    #+#             */
-/*   Updated: 2022/11/20 04:07:35 by aaljaber         ###   ########.fr       */
+/*   Updated: 2022/11/20 04:39:03 by aaljaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,30 @@ void	check_gridline(t_ray *raycast)
 	else if (raycast->v_fdis > raycast->h_fdis)
 		get_fray_coord(raycast, 'h');
 	raycast->f_dis = pythg(raycast->main->pos.axis.x, raycast->ray.x, raycast->main->pos.axis.y, raycast->ray.y);
+}
+
+int	is_ceiling(unsigned int **buffer, int i, int k)
+{
+	if (i == 0)
+		return (1);
+	while (--i > -1)
+	{
+		if (buffer[i][k] != 0)
+			return (0);
+	}
+	return (1);
+}
+
+int	is_floor(unsigned int **buffer, int i, int k)
+{
+	if (i == 0)
+		return (1);
+	while (++i < WIN_H)
+	{
+		if (buffer[i][k] != 0)
+			return (0);
+	}
+	return (1);
 }
 
 /*
@@ -65,7 +89,7 @@ void	do_raycast(t_ray *raycast, int x)
 	while (++y < end)
 	{
 		if ((y > -1 && y < WIN_H) && (x > -1 && x < WIN_W))
-			raycast->main->buffer[y][x] = 0x8545e6;
+			raycast->main->buffer[y][x] = 0x5d478b;
 		raycast->main->re_buf = 1;
 	}
 }
@@ -88,7 +112,14 @@ void	start_raycast(t_cub_main *main)
 	{
 		k = -1;
 		while (++k < WIN_W)
-			main->data[i * WIN_W + k] = main->buffer[i][k];
+		{
+			if (is_ceiling(main->buffer, i, k))
+				main->data[i * WIN_W + k] = 0xadd8e6;
+			else if (is_floor(main->buffer, i, k))
+				main->data[i * WIN_W + k] = 0x4B6C57;
+			else
+				main->data[i * WIN_W + k] = main->buffer[i][k];
+		}
 	}
 	mlx_put_image_to_window(main->x_info.mlx, main->x_info.window, main->image, 0, 0);
 }
