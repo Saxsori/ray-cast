@@ -6,7 +6,7 @@
 /*   By: aaljaber <aaljaber@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 13:32:46 by aaljaber          #+#    #+#             */
-/*   Updated: 2022/08/27 05:48:00 by aaljaber         ###   ########.fr       */
+/*   Updated: 2022/11/20 04:10:10 by aaljaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@
 # define WIN_H	512
 # define WIN_W	640
 # define IMG_SIZE	64
-
+# define STEP_SIZE 20.00
+# define ROTATION_ANGLE 10
 
 typedef struct wall_coord	t_wall_coord;
 typedef struct cub_main		t_cub_main;

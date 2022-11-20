@@ -6,7 +6,7 @@
 /*   By: aaljaber <aaljaber@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 22:25:31 by aaljaber          #+#    #+#             */
-/*   Updated: 2022/08/27 06:08:01 by aaljaber         ###   ########.fr       */
+/*   Updated: 2022/11/20 04:09:44 by aaljaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,47 +32,181 @@ void	move_player(t_cub_main *main)
 	start_raycast(main);
 }
 
+void	move_forward_backward(t_cub_main *main, t_coord *next_pos, int op)
+{
+	if (op == 'f')
+	{
+		next_pos->x += (cos(deg_rad(main->pos.vctr.a)) * STEP_SIZE);
+		next_pos->y += (sin(deg_rad(main->pos.vctr.a)) * STEP_SIZE);
+	}
+	else if (op == 'b')
+	{
+		next_pos->x -= (cos(deg_rad(main->pos.vctr.a)) * STEP_SIZE);
+		next_pos->y -= (sin(deg_rad(main->pos.vctr.a)) * STEP_SIZE);
+	}
+}
+
+void	rotate_dir(t_cub_main *main, int op)
+{
+	if (op == 'r')
+	{
+		main->pos.vctr.a += ROTATION_ANGLE;
+		main->pos.vctr.a = lmt_angle(main->pos.vctr.a);
+	}
+	else if (op == 'l')
+	{
+		main->pos.vctr.a -= ROTATION_ANGLE;
+		main->pos.vctr.a = lmt_angle(main->pos.vctr.a);
+	}
+}
+
+/*
+* first two quadrants 
+! 1st quad: cos+ sin+
+! 2nd quad: cos- sin+
+*/
+void	move_left_firstquadrants(t_cub_main *main, t_coord *next_pos)
+{
+	if (main->pos.vctr.a >= 0.00 && main->pos.vctr.a <= 90.00)
+	{
+		if (cos(deg_rad(main->pos.vctr.a)) * STEP_SIZE > \
+		sin(deg_rad(main->pos.vctr.a)) * STEP_SIZE)
+			next_pos->y -= (cos(deg_rad(main->pos.vctr.a)) * STEP_SIZE);
+		else
+			next_pos->x += (sin(deg_rad(main->pos.vctr.a)) * STEP_SIZE);
+	}
+	if (main->pos.vctr.a >= 90.00 && main->pos.vctr.a <= 180.00)
+	{
+		if (sin(deg_rad(main->pos.vctr.a)) * STEP_SIZE > (STEP_SIZE / 2.00) \
+		|| sin(deg_rad(main->pos.vctr.a)) * STEP_SIZE < -(STEP_SIZE / 2.00))
+			next_pos->x += (sin(deg_rad(main->pos.vctr.a)) * STEP_SIZE);
+		else
+			next_pos->y -= (cos(deg_rad(main->pos.vctr.a)) * STEP_SIZE);
+	}
+}
+
+/*
+* second two quadrants 
+! 3rd quad: cos- sin-
+! 4th quad: cos+ sin-
+*/
+void	move_left_secondquadrants(t_cub_main *main, t_coord *next_pos)
+{
+	if (main->pos.vctr.a >= 180.00 && main->pos.vctr.a <= 270.00)
+	{
+		if (cos(deg_rad(main->pos.vctr.a)) * STEP_SIZE < \
+		sin(deg_rad(main->pos.vctr.a)) * STEP_SIZE)
+			next_pos->y -= (cos(deg_rad(main->pos.vctr.a)) * STEP_SIZE);
+		else
+			next_pos->x += (sin(deg_rad(main->pos.vctr.a)) * STEP_SIZE);
+	}
+	if (main->pos.vctr.a >= 270 && main->pos.vctr.a <= 360.00)
+	{
+		if (sin(deg_rad(main->pos.vctr.a)) * STEP_SIZE > (STEP_SIZE / 2.00) \
+		|| sin(deg_rad(main->pos.vctr.a)) * STEP_SIZE < -(STEP_SIZE / 2.00))
+			next_pos->x += (sin(deg_rad(main->pos.vctr.a)) * STEP_SIZE);
+		else
+			next_pos->y -= (cos(deg_rad(main->pos.vctr.a)) * STEP_SIZE);
+	}
+}
+
+/*
+* first two quadrants 
+! 1st quad: cos+ sin+
+! 2nd quad: cos- sin+
+*/
+void	move_right_firstquadrants(t_cub_main *main, t_coord *next_pos)
+{
+	if (main->pos.vctr.a >= 0.00 && main->pos.vctr.a <= 90.00)
+	{
+		if (cos(deg_rad(main->pos.vctr.a)) * STEP_SIZE > \
+		sin(deg_rad(main->pos.vctr.a)) * STEP_SIZE)
+			next_pos->y += (cos(deg_rad(main->pos.vctr.a)) * STEP_SIZE);
+		else
+			next_pos->x -= (sin(deg_rad(main->pos.vctr.a)) * STEP_SIZE);
+	}
+	if (main->pos.vctr.a >= 90.00 && main->pos.vctr.a <= 180.00)
+	{
+		if (sin(deg_rad(main->pos.vctr.a)) * STEP_SIZE > (STEP_SIZE / 2.00) \
+		|| sin(deg_rad(main->pos.vctr.a)) * STEP_SIZE < -(STEP_SIZE / 2.00))
+			next_pos->x -= (sin(deg_rad(main->pos.vctr.a)) * STEP_SIZE);
+		else
+			next_pos->y += (cos(deg_rad(main->pos.vctr.a)) * STEP_SIZE);
+	}	
+}
+
+/*
+* second two quadrants 
+! 3rd quad: cos- sin-
+! 4th quad: cos+ sin-
+*/
+void	move_right_secondquadrants(t_cub_main *main, t_coord *next_pos)
+{
+	if (main->pos.vctr.a >= 180.00 && main->pos.vctr.a <= 270.00)
+	{
+		if (cos(deg_rad(main->pos.vctr.a)) * STEP_SIZE < \
+		sin(deg_rad(main->pos.vctr.a)) * STEP_SIZE)
+			next_pos->y += (cos(deg_rad(main->pos.vctr.a)) * STEP_SIZE);
+		else
+			next_pos->x -= (sin(deg_rad(main->pos.vctr.a)) * STEP_SIZE);
+	}
+	if (main->pos.vctr.a >= 270.00 && main->pos.vctr.a <= 360.00)
+	{
+		if (sin(deg_rad(main->pos.vctr.a)) * STEP_SIZE > (STEP_SIZE / 2.00) \
+		|| sin(deg_rad(main->pos.vctr.a)) * STEP_SIZE < -(STEP_SIZE / 2.00))
+			next_pos->x -= (sin(deg_rad(main->pos.vctr.a)) * STEP_SIZE);
+		else
+			next_pos->y += (cos(deg_rad(main->pos.vctr.a)) * STEP_SIZE);
+	}
+}
+
+void	move_left_right(t_cub_main *main, t_coord *next_pos, int op)
+{
+	if (op == 'l')
+	{
+		move_left_firstquadrants(main, next_pos);
+		move_left_secondquadrants(main, next_pos);
+	}
+	else if (op == 'r')
+	{
+		move_right_firstquadrants(main, next_pos);
+		move_right_secondquadrants(main, next_pos);
+	}
+}
+
+void	check_if_wall(t_cub_main *main, t_coord *next_pos)
+{
+	if (main->m_info.map[(int)(next_pos->y / 64.00)] \
+	[(int)(next_pos->x / 64.00)] != '1')
+	{
+		main->pos.axis.x = next_pos->x;
+		main->pos.axis.y = next_pos->y;
+	}
+}
+
 int	move(int key, void *param)
 {
 	t_cub_main	*main;
+	t_coord		next_pos;
 
 	main = (t_cub_main *) param;
+	next_pos.x = main->pos.axis.x;
+	next_pos.y = main->pos.axis.y;
 	if (key == K_W)
-	{
-		main->pos.axis.y += (main->pos.vctr.y * 5);
-		main->pos.axis.x += (main->pos.vctr.x * 5);
-	}
+		move_forward_backward(main, &next_pos, 'f');
 	else if (key == K_S)
-	{
-		main->pos.axis.y -= (main->pos.vctr.y * 5);
-		main->pos.axis.x -= (main->pos.vctr.x * 5);
-	}
+		move_forward_backward(main, &next_pos, 'b');
 	else if (key == K_AR_R)
-	{
-		main->pos.vctr.a -= 1;
-		main->pos.vctr.a = lmt_angle(main->pos.vctr.a);
-		main->pos.vctr.x = cos(deg_rad(main->pos.vctr.a));
-		main->pos.vctr.y = -sin(deg_rad(main->pos.vctr.a));
-	}
+		rotate_dir(main, 'r');
 	else if (key == K_AR_L)
-	{
-		main->pos.vctr.a += 1;
-		main->pos.vctr.a = lmt_angle(main->pos.vctr.a);
-		main->pos.vctr.x = cos(deg_rad(main->pos.vctr.a));
-		main->pos.vctr.y = -sin(deg_rad(main->pos.vctr.a));
-	}
+		rotate_dir(main, 'l');
 	else if (key == K_A)
-	{
-		main->pos.axis.y += (main->pos.vctr.y * 5);
-		main->pos.axis.x += (main->pos.vctr.x * 5) - 5;
-	}
+		move_left_right(main, &next_pos, 'l');
 	else if (key == K_D)
-	{
-		main->pos.axis.y += (main->pos.vctr.y * 5);
-		main->pos.axis.x += (main->pos.vctr.x * 5) + 5;
-	}
+		move_left_right(main, &next_pos, 'r');
 	if (key == K_ESC)
 		endgame(main);
+	check_if_wall(main, &next_pos);
 	find_initial_dis(main);
 	move_player(main);
 	return (0);
