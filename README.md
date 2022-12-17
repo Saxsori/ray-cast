@@ -2,7 +2,7 @@
 
 I will explain here the formulas that I have used to implement the ray-casting. This raycast has been made in order to create a 3D game [Cub3D](https://github.com/Saxsori/cub3d). The project still in progress ⚙️🛠.
 
-Note: `Im NoT DoNe yEt wItH KeYs .. AnD YES tHe PaLyEr cAn wAlK ThRouGh tHe WaLLs` 🧟‍♀️       [[DONE✅]](https://github.com/Saxsori/ray-cast/commit/605acb75175820553e6d988fbf837329ed6a482b)
+Note: `Im NoT DoNe yEt wItH KeYs .. AnD YES tHe PaLyEr cAn wAlK ThRouGh tHe WaLLs` 🧟‍♀️       [[DONE ✅]](https://github.com/Saxsori/ray-cast/commit/605acb75175820553e6d988fbf837329ed6a482b)
 
 ## Introduction
 The idea of the raycasting in general is easy and the formulas isn't that complicated. I will explain what kind of calaculation I used to create, draw, and move around the walls.
